@@ -1,0 +1,59 @@
+
+.card {
+  margin: 8px auto 8px auto;
+  display: block;
+  max-width: 340px;
+}
+
+.card-img-top {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+}
+
+.select-panel {
+  text-align: center;
+  margin: 0 auto 0 auto;
+  display: block;
+}
+
+.results-panel .fas,
+.btn-reset {
+  text-align: center;
+  display: block;
+  margin: 10px auto 0 auto;
+}
+
+.computerFace {
+  margin-bottom: 10px;
+}
+
+.select-panel .btn-secondary {
+  background: #6d7fcc;
+  border-color: #5b679c; 
+}
+
+.select-panel .btn-secondary:focus {
+  outline: 0;
+}
+
+.modal-dialog {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  right: 20%;
+  bottom: 20%;
+  height: 80%;
+  width: 80%;
+}
+
+.rm-btn {
+  background: #7386d5;
+  border: 1px solid #546094;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  margin: 0 0 0 3px;
+}
