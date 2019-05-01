@@ -19,10 +19,10 @@ In the development mode, we will have 2 servers running. The front end code will
 
 ```bash
 # Clone the repository
-git clone https://github.com/Patrick-W-McMahon/Rock_Paper_Scissors_React
+git clone https://github.com/Patrick-W-McMahon/infuse
 
 # Go inside the directory
-cd Rock_Paper_Scissors_React
+cd infuse
 
 # Install dependencies
 yarn (or npm install)
