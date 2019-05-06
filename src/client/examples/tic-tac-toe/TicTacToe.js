@@ -6,7 +6,7 @@ import PostMove from './api/move.js';
 import SelectPanel from './components/SelectPanel';
 import ResultsPanel from './components/ResultsPanel';
 import Icon from './components/Icon';
-import ComputerFace from './components/computerFace';
+import ComputerFace from './components/ComputerFace';
 import ReadMe from './components/ReadMe';
 
 export default class TicTacToe extends Component {
