@@ -11,8 +11,7 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "jest --verbose",
-    "coverage": "npx jest --coverage"
+    "test": "jest"
   },
   "author": "Sandeep Raveesh",
   "repository": {
@@ -68,10 +67,5 @@
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "./tests.setup.js"
-    ]
   }
 }
