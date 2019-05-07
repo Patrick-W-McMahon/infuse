@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { addWin, addLose, addTie } from '../../actions/ticTacToeAction';
 import "./app.css";
 import PostMove from './api/move.js';
 import SelectPanel from './components/SelectPanel';
@@ -9,7 +11,7 @@ import Icon from './components/Icon';
 import ComputerFace from './components/ComputerFace';
 import ReadMe from './components/ReadMe';
 
-export default class TicTacToe extends Component {
+class TicTacToe extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,6 +29,7 @@ export default class TicTacToe extends Component {
   }
 
   handleSelectionClick(choice) {
+    const { addWin, addLose, addTie } = this.props;
     this.setState({
       player: choice,
       computer: null,
@@ -42,6 +45,17 @@ export default class TicTacToe extends Component {
         const { computerChoice: computer, result, face } = data;
         this.setState({computer, result, face });
         this.notify(`You ${result}`);
+        switch(result) {
+          case 'win':
+            addWin();
+            break;
+          case 'lose':
+            addLose();
+            break;
+          case 'tie':
+            addTie();
+            break;
+        }
       }
     });
   }
@@ -77,3 +91,11 @@ export default class TicTacToe extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({ ...state });
+const mapDispatchToProps = dispatch => ({
+  addWin: () => addWin(),
+  addLose: () => addLose(),
+  addTie: () => addTie()
+});
+export default connect(mapStateToProps, mapDispatchToProps)(TicTacToe);
