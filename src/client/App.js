@@ -6,13 +6,12 @@ import Header from './components/Header';
 import Navigation from './components/Navigation';
 
 //Pages
-import Home from './Home';
-import TicTacToe from './examples/tic-tac-toe/TicTacToe';
+import Home from './containers/Home';
+import RockPaperScissors from './containers/RockPaperScissors';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
@@ -25,7 +24,7 @@ export default class App extends Component {
           </div>
           <div className="content">
             <Route exact path="/" component={Home} />
-            <Route exact path="/tic-tac-toe" component={TicTacToe} />
+            <Route exact path="/rock-paper-scissors" component={RockPaperScissors} />
           </div>
           <ToastContainer autoClose={2000} />
         </div>
@@ -33,14 +32,3 @@ export default class App extends Component {
     );
   }
 }
-
-/*
-
-<Container>
-        <Row>
-          <Col>left nav</Col>
-          <Col xs={9}>content</Col>
-        </Row>
-      </Container>
-
-*/
