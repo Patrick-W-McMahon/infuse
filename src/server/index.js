@@ -2,6 +2,7 @@ const express = require('express');
 const os = require('os');
 const bodyParser = require('body-parser');
 
+const portNumber = 8080;
 const app = express();
 const playableOptions = ['rock', 'paper', 'scissors'];
 const computerFace = {
@@ -58,5 +59,5 @@ app.post('/api/match', (req, res) => {
     }, latency); 
 });
 app.use(express.static('dist'));
-app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
-app.listen(8080, () => console.log('Listening on port 8080!'));
+app.get('/api/username', (req, res) => res.send({ username: os.userInfo().username }));
+app.listen(portNumber, () => console.log(`Listening on port ${portNumber}!`));
