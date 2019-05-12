@@ -4,8 +4,8 @@ import { fetchGameMove, resetGame } from './action';
 import "./app.css";
 import SelectPanel from './components/SelectPanel';
 import ResultsPanel from './components/ResultsPanel';
-import Icon from './components/Icon';
-import ComputerFace from './components/ComputerFace';
+import Icon from '../../components/Icon';
+import ComputerFace from '../../components/ComputerFace';
 import ReadMe from './components/ReadMe';
 
 class RockPaperScissors extends Component {
