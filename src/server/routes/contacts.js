@@ -1,6 +1,5 @@
 const { getRandomInt } = require('../apis/index');
 
-
 const getContacts = (req, res) => {
     const contacts = [
         {
@@ -16,7 +15,6 @@ const getContacts = (req, res) => {
 };
 
 const postContact = (req, res) => {
-    console.log('postContact', req.body);
     const { firstName, lastName, email, phoneNumber, address } = req.body;
     const contacts = {
         index: getRandomInt(0,1000),
@@ -33,7 +31,6 @@ const deleteContact = (req, res) => {
     res.sendStatus(200);
     return req.params.id;
 };
-
 
 module.exports = {
     getContacts,
