@@ -7,7 +7,7 @@ const GameBoard = ({ board, selectedCell }) => (
             {board.map((cell, index) => (
                 <div key={index} 
                 onClick={() => selectedCell(index)}
-                className={cell !== '' ? `selected val-${cell}`:null}>{cell}</div> 
+                className={cell !== '' ? `selected val-${cell}`:null}><span>{cell}</span></div> 
             ))}
         </div>
     </Fragment>

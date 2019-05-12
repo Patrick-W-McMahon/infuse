@@ -16,7 +16,7 @@ export const makeMoveSuccess = ({ face, board }) => ({
     board
 });
 
-export const makeMoveFailure = ({ error }) => ({
+export const makeMoveFailure = error => ({
     type: MAKE_MOVE_TTT_FAILURE,
     error 
 });
@@ -24,14 +24,10 @@ export const makeMoveFailure = ({ error }) => ({
 export function makeMove(choice) {
     return (dispatch, getState) => {
         const { board } = getState().TicTacToe;
-        if(board[choice] !== '') {
-            dispatch(makeMoveFailure('invalid selection'));
-            throw new Error('invalid selection');
-        }
-        dispatch(makeMoveBegin(choice, board));
+        dispatch(makeMoveBegin());
         fetch("/api/tic-tac-toe/move",{
             method: 'POST',
-            body: JSON.stringify({choice}),
+            body: JSON.stringify({ choice, board }),
             headers: {'Content-Type': 'application/json'}
         }).then(responce => {
             if(responce.ok){
@@ -40,7 +36,8 @@ export function makeMove(choice) {
                 throw new Error('Something went wrong');
             }
         }).then(responseJson => {
-            toast(`You ${responseJson.result}`, { position: toast.POSITION.BOTTOM_RIGHT });
+            console.log('responce', responseJson);
+            //toast(`You ${responseJson.result}`, { position: toast.POSITION.BOTTOM_RIGHT });
             dispatch(makeMoveSuccess(responseJson));
             return responseJson;
         }).catch(error => dispatch(makeMoveFailure(error)));

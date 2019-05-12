@@ -58,6 +58,16 @@
   border: 1px solid black;
 }
 
+.game-board div > span {
+  position: absolute;
+  font-weight: 900;
+  font-size: 2.4em;
+  display: block;
+  text-align: center;
+  margin: 4px auto 2px auto;
+  width: 21%;
+}
+
 .game-board div:hover {
   cursor: pointer;
   background: lightgreen;
