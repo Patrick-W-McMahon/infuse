@@ -2,6 +2,10 @@
 
 Infuse is a powerful React starter kit with a preset express server to handle server REST calls. 
 
+## Example processes
+- [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html)
+- [Redux Forms](https://redux-form.com)
+
 
 ## Introduction
 

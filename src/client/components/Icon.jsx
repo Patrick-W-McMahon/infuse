@@ -11,7 +11,10 @@ Icon.defaultProps = {
 
 Icon.propTypes = {
     icon: PropTypes.string.isRequired,
-    size: PropTypes.number,
+    size: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     spin: PropTypes.bool
 };
 

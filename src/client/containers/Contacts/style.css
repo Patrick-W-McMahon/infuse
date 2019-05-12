@@ -1,0 +1,42 @@
+.contacts-area {
+  width: 85%;
+  border: 1px solid lightslategray;
+  margin: 20px auto 10px auto;
+}
+
+.contacts-area > button {
+  float: right;
+}
+
+.contacts-area table,
+.contacts-area td,
+.contacts-area th {
+  border: 1px solid black;
+}
+
+.contacts-area table {
+  width: 100%;
+}
+
+.contacts-area th {
+  background: #7386D5;
+  color: white;
+  font-weight: 900;
+}
+
+form label {
+  display: inline-block;
+  width: 140px;
+}
+
+form input {
+  display: inline-block;
+  width: 280px;
+}
+
+*[type=submit] {
+  float: right;
+  color: white;
+  background: rgb(103, 143, 44);
+  border: 1px solid rgb(18, 80, 18);
+}
