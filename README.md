@@ -232,4 +232,11 @@ Above, we have modified editor configurations. Alternatively, this can be config
 
 
 ### Resources
-[React Router Concepts](https://blog.logrocket.com/advanced-react-router-concepts-code-splitting-animated-transitions-scroll-restoration-recursive-17096c0cf9db)
+- [React Router Concepts](https://blog.logrocket.com/advanced-react-router-concepts-code-splitting-animated-transitions-scroll-restoration-recursive-17096c0cf9db)
+- [Full Stack React](https://www.fullstackreact.com/p/routing/)
+- [Side Routing](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#serving-apps-with-client-side-routing)
+- [Server Side Rendering](https://crypt.codemancers.com/posts/2017-06-03-reactjs-server-side-rendering-with-router-v4-and-redux/)
+- [Ducks Modular Redux](https://github.com/erikras/ducks-modular-redux)
+- [JSON Placeholder](http://jsonplaceholder.typicode.com/)
+- [Isomorphic React](https://developer.ibm.com/node/2015/06/10/node-js-react-isomorphic-javascript-why-it-matters/)
+- [EJS templates](https://scotch.io/tutorials/use-ejs-to-template-your-node-application)

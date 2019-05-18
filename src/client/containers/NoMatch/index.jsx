@@ -6,5 +6,4 @@ const NoMatch = () => (
     <p>The path you requested couldn't be resolved.</p>
   </Fragment>
 );
-
 export default NoMatch;

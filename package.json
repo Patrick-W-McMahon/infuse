@@ -5,6 +5,7 @@
   "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
   "main": "src/server/index.js",
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "setup": "npm install --no-optional --no-shrinkwrap --no-package-lock",
     "start": "node src/server/index.js",
     "build": "NODE_ENV=production && webpack --mode production",
@@ -22,17 +23,20 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.16.4",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
     "react-markdown": "^4.0.8",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
+    "react-router-config": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-toastify": "^4.5.2",
     "redux": "^4.0.1",
     "redux-form": "^8.2.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "source-map-explorer": "^1.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
