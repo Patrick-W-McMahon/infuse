@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchContacts, addContact, removeContact } from './action';
 import "./style.css";
 import Icon from '../../components/Icon';
-import ContactForm from './components/ContactForm';
+import ContactForm from '../../components/Forms/Contact';
 
 
 class ContactsExample extends Component {

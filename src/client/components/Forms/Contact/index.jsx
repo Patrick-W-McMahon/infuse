@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import normalizePhone from '../../../components/normalizePhone';
-import Model from '../../../components/Model';
+import normalizePhone from '../../../api/normalizePhone';
+import Model from '../../Model';
 
 const ContactForm = ({ handleSubmit, showForm, onClose }) => (
     <Model title={'Contact Form'} show={showForm} onClose={onClose}>

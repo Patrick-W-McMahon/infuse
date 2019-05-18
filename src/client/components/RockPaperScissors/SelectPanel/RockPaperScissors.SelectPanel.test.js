@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import SelectPanel from '../SelectPanel';
+import SelectPanel from './index';
 
 const props = { onSelection: () => {} };
 const wrapper = shallow(<SelectPanel {...props} />);

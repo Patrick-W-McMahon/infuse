@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Icon from '../Icon';
+import Icon from './index';
 
 const props = { icon: 'cog' };
 const wrapper = shallow(<Icon {...props} />);

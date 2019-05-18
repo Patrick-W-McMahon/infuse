@@ -5,6 +5,8 @@ Infuse is a powerful React starter kit with a preset express server to handle se
 ## Example processes
 - [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html)
 - [Redux Forms](https://redux-form.com)
+- [Code splitting](https://reactjs.org/docs/code-splitting.html)
+- [React Loadable](https://github.com/jamiebuilds/react-loadable)
 
 
 ## Introduction
@@ -226,3 +228,8 @@ This starts a server and listens on port 8080 for connections. The app responds 
     ```
 
 Above, we have modified editor configurations. Alternatively, this can be configured at the project level by following [this article](https://medium.com/@netczuk/your-last-eslint-config-9e35bace2f99).
+
+
+
+### Resources
+[React Router Concepts](https://blog.logrocket.com/advanced-react-router-concepts-code-splitting-animated-transitions-scroll-restoration-recursive-17096c0cf9db)

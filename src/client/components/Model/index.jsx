@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 const Model = ({ title, show, onClose, children }) => (
     <div className={`modal ${show ? 'open' : 'close'}`}>

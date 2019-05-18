@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
 import { makeMove, resetGame } from './action';
 import "./style.css";
-import GameBoard from './components/GameBoard';
+import GameBoard from '../../components/TicTacToe/GameBoard';
 import Icon from '../../components/Icon';
 import ComputerFace from '../../components/ComputerFace';
 

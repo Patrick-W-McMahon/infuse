@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
 import { fetchGameMove, resetGame } from './action';
-import "./app.css";
-import SelectPanel from './components/SelectPanel';
-import ResultsPanel from './components/ResultsPanel';
+import "./style.css";
+import SelectPanel from '../../components/RockPaperScissors/SelectPanel';
+import ResultsPanel from '../../components/RockPaperScissors/ResultsPanel';
 import Icon from '../../components/Icon';
 import ComputerFace from '../../components/ComputerFace';
-import ReadMe from './components/ReadMe';
+import ReadMe from '../../components/ReadMe';
 
 class RockPaperScissors extends Component {
   constructor(props) {

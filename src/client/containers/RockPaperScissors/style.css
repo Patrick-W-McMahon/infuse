@@ -11,30 +11,11 @@
   text-align: center;
 }
 
-.select-panel {
-  text-align: center;
-  margin: 0 auto 0 auto;
-  display: block;
-}
-
 .results-panel .fas,
 .btn-reset {
   text-align: center;
   display: block;
   margin: 10px auto 0 auto;
-}
-
-.computerFace {
-  margin-bottom: 10px;
-}
-
-.select-panel .btn-secondary {
-  background: #6d7fcc;
-  border-color: #5b679c; 
-}
-
-.select-panel .btn-secondary:focus {
-  outline: 0;
 }
 
 .modal-dialog {

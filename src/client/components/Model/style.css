@@ -1,0 +1,54 @@
+.modal {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20%;
+    right: 20%;
+    margin: 20px auto 0 auto;
+    width: 460px;
+    max-height: 80%;
+    background: lightgrey;
+    border: 1px solid darkslategray;
+  }
+  
+  .modal header {
+    background: #7386D5;
+    color: white;
+  }
+  
+  .modal header span {
+    display: inline-block;
+    font-weight: 900;
+    font-size: 1.8em;
+    padding: 4px 0 4px 4px;
+  }
+  
+  .modal header .closeBtn {
+    float: right;
+    padding: 0 8px 1px 8px;
+    margin: 0 3px 0 0;
+    background: red;
+    color: white;
+    font-weight: 900;
+    font-size: 1.3em;
+    border: 1px solid darkred;
+    border-top: 0px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  .modal.open {
+    display: block;
+    visibility: visible;
+  }
+  
+  .modal.close {
+    display: none;
+    visibility: hidden;
+  }
+
+  .model-content {
+    padding: 8px;
+  }

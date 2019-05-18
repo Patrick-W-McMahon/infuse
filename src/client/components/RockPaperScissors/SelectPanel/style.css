@@ -1,0 +1,14 @@
+.select-panel {
+    text-align: center;
+    margin: 0 auto 0 auto;
+    display: block;
+}
+
+.select-panel .btn-secondary {
+    background: #6d7fcc;
+    border-color: #5b679c; 
+}
+
+.select-panel .btn-secondary:focus {
+    outline: 0;
+}
