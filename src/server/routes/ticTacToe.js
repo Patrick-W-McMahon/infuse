@@ -1,3 +1,4 @@
+const { getRandomInt, computerFace, rand } = require('../apis/index');
 
 const winnable = [
     '0,1,2','3,4,5','6,7,8',
@@ -10,66 +11,64 @@ const players = {
     computer: 'O'
 };
 
+const avalibleMovesLeft = (board) => {
+    let count=9;
+    board.forEach(cell => {
+        if(cell !== ''){
+            count--;
+        }
+    });
+    return count || 0;
+}
+
 const countLine = (cells,player) => {
     let count = 0;
     let spot = -1;
     cells.forEach((cell,index) => {
-        if(cell === '' || cell === player) {
-            if(cell === player) {
-                count++;
-            } else {
-                spot = index;
-            }
-        } else {
-            return -1;
+        if(cell === player) {
+            count ++;
+        }
+        if(cell === '') {
+            spot = index;
         }
     });
-    if(count === 2) {
-        return spot;
-    } else {
-        return -1;
-    }
+    return count === 2 ? spot : -1;
 };
 
 const hasPlayerWon = (board, player) => {
-    winnable.forEach(test => {
+    const winLine = winnable.findIndex(test => {
         let count = 0;
         const cells = test.split(',').map(p => board[p]);
-        cells.forEach(t => {
-            if(t === player) {
-                count++;
-            }
-        });
-        if(count === 3) {
-            return {
-                player,
-                winningLine: test
-            };
-        }
+        cells.forEach(t => t === player ? count++ : null);
+        return count === 3;
     });
-    return false;
+    return winLine > -1 ? {player, winningLine: winLine, winningSet: winnable[winLine]} : false;
 };
 
 const AiChoice = ({board,player,ai}) => {
-    winnable.forEach(test => {
+    let aiMove=false;
+    winnable.forEach(test => { //If AI can win this turn make winning move
         const cells = test.split(',').map(p => board[p]);
         const move = countLine(cells, ai);
         if(move > -1) {
-            return cells[move];
+            aiMove = test.split(',')[move];
+            return aiMove;
         }
     });
-    winnable.forEach(test => {
-        const cells = test.split(',').map(p => board[p]);
-        const move = countLine(cells, player);
-        if(move > -1) {
-            return cells[move];
-        }
-    });
-    moveOrder.forEach(move => {
-        if(board[move] === '') {
-            return board[move];
-        }
-    });
+    if(!aiMove){
+        winnable.forEach(test => {//If player can win next turn block player
+            const cells = test.split(',').map(p => board[p]);
+            const move = countLine(cells, player);
+            if(move > -1) {
+                aiMove = test.split(',')[move];
+                return aiMove;
+            }
+        });
+    }
+    if(aiMove){
+        return aiMove;
+    }
+    return moveOrder.find(move => board[move] == '' ? move : false);
 };
 
 const setPlayerChoice = (choice, board, player) => {
@@ -87,29 +86,33 @@ const postTttMatch = (req, res) => {
     if(typeof choice === 'undefined'){
         return res.status(400).json({ error: "'choice' param must not be null" });
     }
-    if(validateChoice(choice,board)){
-        let nextBoard = setPlayerChoice(choice, board, players.human);
-        nextBoard = setPlayerChoice(AiChoice({
-            board: nextBoard,
-            player: players.human,
-            ai: players.computer
-        }), nextBoard, players.computer);
-        const winnerTests = {
-            player: hasPlayerWon(board,players.human),
-            computer: hasPlayerWon(board,players.computer)
-        };
-        const winner = winnerTests.player || winnerTests.computer;
-        const face = 'meh';
-        return res.json({ board: nextBoard, winner, face });
-    } else {
-        const winnerTests = {
-            player: hasPlayerWon(board,players.human),
-            computer: hasPlayerWon(board,players.computer)
-        };
-        const winner = winnerTests.player || winnerTests.computer;
-        const face = 'meh';
-        return res.json({ board, winner, face });
-    }    
+    if(!validateChoice(choice,board)){
+        return res.status(403).json({ error: "invalided selection." });
+    }
+    let nextBoard = setPlayerChoice(choice, board, players.human);
+    const didPlayerWin = hasPlayerWon(nextBoard,players.human);
+    if(didPlayerWin){
+        return res.json({ board: nextBoard, winner: didPlayerWin, face: rand(computerFace['win']) }); 
+    }
+    const remainingMoves = avalibleMovesLeft(nextBoard);
+    if(remainingMoves === 0) {
+        const face = rand(computerFace['tie']);
+        return res.json({ board: nextBoard, winner:'tie', face }); 
+    }
+    const aiChoice = AiChoice({
+        board: nextBoard,
+        player: players.human,
+        ai: players.computer
+    });
+    nextBoard = setPlayerChoice(aiChoice, nextBoard, players.computer);
+    const winnerTests = {
+        player: hasPlayerWon(nextBoard,players.human),
+        computer: hasPlayerWon(nextBoard,players.computer)
+    };
+    const winner = winnerTests.player || winnerTests.computer;
+    const faceType = winner ? (winnerTests.computer ? 'lose' : 'win') : 'playing';
+    const face = rand(computerFace[faceType]);
+    return res.json({ board: nextBoard, winner, face });     
 };
 
 module.exports = {

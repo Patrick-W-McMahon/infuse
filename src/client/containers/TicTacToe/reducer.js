@@ -2,7 +2,8 @@ import {
     MAKE_MOVE_TTT_BEGIN,
     MAKE_MOVE_TTT_SUCCESS,
     MAKE_MOVE_TTT_FAILURE,
-    RESET_GAME_TTT
+    RESET_GAME_TTT,
+    NO_MOVE_MADE
 } from './action';
 
 const initialState = {
@@ -23,18 +24,23 @@ export default function TicTacToe(state = initialState, action) {
                 face: 'meh'
             };
         case MAKE_MOVE_TTT_SUCCESS:
-            const { board, face } = action;
+            const { board, face, winner } = action;
             return {
                 ...state,
                 loading: false,
                 error: false,
                 board,
+                winner,
                 face
             };
+        case NO_MOVE_MADE:
+            return {
+                ...state,
+                loading: false,
+                error: false
+            };
         case MAKE_MOVE_TTT_FAILURE:
-            console.log('failed', action);
             const { error } = action;
-            console.log('test', error);
             return {
                 ...state,
                 loading: false,

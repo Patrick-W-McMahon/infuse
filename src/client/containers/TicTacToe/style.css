@@ -77,3 +77,27 @@
   cursor: not-allowed;
   background: lightcoral;
 }
+
+.game-board .disabled {
+  background: gray;
+}
+
+.game-board.game-over {
+  background: darkgray;
+  color: lightgray;
+}
+
+.game-board.game-over div:hover {
+  cursor: not-allowed;
+  background: inherit;
+}
+
+.game-board.game-over div.winning_move:hover {
+  cursor: not-allowed;
+  background: rgb(203, 243, 203);
+}
+
+.game-board .winning_move {
+  background: lightgreen;
+  color: black;
+}
