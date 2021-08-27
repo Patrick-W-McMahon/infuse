@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const { GetUserName } = require('./routes/system');
+const { GetUserName, GetENV } = require('./routes/system');
 const { getContacts, postContact, deleteContact } = require('./routes/contacts');
 const { postMatch } = require('./routes/rockPaperScissors');
 const { postTttMatch } = require('./routes/ticTacToe');
@@ -13,6 +13,8 @@ const { postTttMatch } = require('./routes/ticTacToe');
 // });
 //Home page
 router.get('/api/username', GetUserName);
+//Get ENV
+router.get('/api/env', GetENV);
 //Contacts
 router.get('/api/contacts', getContacts);
 router.post('/api/contacts', postContact);
@@ -22,5 +24,4 @@ router.post('/api/match', postMatch);
 //Tick Tac Toe
 router.post('/api/tic-tac-toe/move', postTttMatch);
 
-  
 module.exports = router;

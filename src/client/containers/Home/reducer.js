@@ -1,14 +1,17 @@
-
-import { 
+import {
     FETCH_NAME_BEGIN,
     FETCH_NAME_SUCCESS,
-    FETCH_NAME_FAILURE
+    FETCH_NAME_FAILURE,
+    FETCH_ENV_BEGIN,
+    FETCH_ENV_SUCCESS,
+    FETCH_ENV_FAILURE
 } from './action';
 
 const initialState = {
     loading: false,
     error: false,
-    name: ''
+    name: '',
+    env: false
 };
 
 export default function Home(state = initialState, action) {
@@ -25,16 +28,37 @@ export default function Home(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: false,
-                name: action.name,
+                name: action.name
             };
         case FETCH_NAME_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.error,
-                name: '',
+                name: ''
+            };
+        case FETCH_ENV_BEGIN:
+            return {
+                ...state,
+                loaing: true,
+                error: false,
+                env: null
+            };
+        case FETCH_ENV_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: false,
+                env: action.env
+            };
+        case FETCH_ENV_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: false,
+                env: null
             };
         default:
             return state;
-    } 
+    }
 }
