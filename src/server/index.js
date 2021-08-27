@@ -5,9 +5,8 @@ const portNumber = 8080;
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('dist'));
 //Routes
 app.use(require('./routes'));

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Markdown from 'react-markdown';
+//import Markdown from 'react-markdown';//This is not working may need to find a different plugin.
 
 class ReadMe extends React.Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class ReadMe extends React.Component {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <Markdown source={src} />
+                        {/*<Markdown source={src} />*/}
                     </div>
                 </div>
             </div>
