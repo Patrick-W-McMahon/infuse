@@ -3,9 +3,14 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+:root {
+    --clr-primary: #6d7fcc;
+    --clr-val-primary: 109, 127, 204;
+}
+
 * {
     scrollbar-width: thin;
-    scrollbar-color: #6d7fcc rgba(109, 127, 204, 0.6);
+    scrollbar-color: var(--clr-primary) rgba(var(--clr-val-primary), 0.6);
 }
 
 *::-webkit-scrollbar {
@@ -13,13 +18,13 @@
 }
 
 *::-webkit-scrollbar-track {
-    background: rgba(109, 127, 204, 0.6);
+    background: rgba(var(--clr-val-primary), 0.6);
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #6d7fcc;
+    background-color: var(--clr-primary);
     border-radius: 10px;
-    border: 2px solid rgba(109, 127, 204, 0.6);
+    border: 2px solid rgba(var(--clr-val-primary), 0.6);
 }
 
 .wrapper {
@@ -54,7 +59,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #6d7fcc;
+    color: var(--clr-primary);
 }
 
 a,
@@ -74,7 +79,7 @@ a:focus {
 
 .sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: var(--clr-primary);
 }
 
 .sidebar ul.components {
@@ -100,13 +105,13 @@ a:focus {
 .sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: var(--clr-primary);
 }
 
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: var(--clr-primary);
 }
 
 .content {
@@ -122,17 +127,17 @@ ul ul a {
 .box {
     display: block;
     width: 50%;
-    border: 1px solid #6d7fcc;
+    border: 1px solid var(--clr-primary);
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
-    box-shadow: 3px 3px 8px rgba(109, 127, 204, 0.8), inset 2px 2px 5px rgba(109, 127, 204, 0.6);
+    box-shadow: 3px 3px 8px rgba(var(--clr-val-primary), 0.8), inset 2px 2px 5px rgba(var(--clr-val-primary), 0.6);
     border-radius: 3px;
 }
 
 .box header {
     font-size: 1.6em;
-    border-bottom: 1px solid #6d7fcc;
+    border-bottom: 1px solid var(--clr-primary);
     display: block;
     width: 100%;
     text-align: center;
